@@ -1,0 +1,21 @@
+.flow{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    padding: 30px;
+    box-sizing: border-box;
+
+}
+
+.innerLine {
+    background-color: tomato;
+    width: 30px;
+    height: 2px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.ball {
+    position: relative;
+}
