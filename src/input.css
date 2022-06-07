@@ -1,0 +1,8 @@
+.form-wrapper {
+    background-color: #14141A;
+    max-width: 414px;
+    min-width: 360px;
+    border-radius: 15px;
+    height: 100vh;
+    max-height: 896px;
+}
