@@ -1,4 +1,9 @@
 .app-cont{
-  display: flex;
-  justify-content: center;
+  background-color: #14141A;
+    max-width: 414px;
+    min-width: 360px;
+    border-radius: 15px;
+    height: 100vh;
+    max-height: 896px;
+    padding: 0 35px 0 35px;
 }

@@ -53,13 +53,11 @@ export default function Input() {
     }
 
 
-    return <div>
+    return <div className="wrapper">
 
 
         <div class='form-wrapper'>
-            <Flow />
-
-            <form onSubmit={submitHandler}>
+              <form onSubmit={submitHandler}>
                 <input name="user" type="text" onChange={changeHandler} value={formState.user} placeholder='Introduzca su Usuario: ' />
                 <p>{formState.user}</p>
                 <span>{formState.errors.user}</span>
