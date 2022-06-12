@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './Input';
+import Form from './Form';
 import Flow from './components/Flow';
 import './App.css';
 
@@ -13,7 +13,7 @@ export default function App() {
         <span className="breadcrums"> of 4</span>
       </div>
       <h1 className="page-title">login & enjoy with us</h1>
-      <Input />
+      <Form formTitle="LOGIN HERE" />
     </div>
   );
 }

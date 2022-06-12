@@ -11,6 +11,12 @@ const formLoginReducer = (state, action) => {
         ...state,
         hasConsented: !state.hasConsented,
       };
+    case 'CLEAR_FORM':
+      return {
+        ...state,
+        user: '',
+        password: '',
+      };
     default:
       return state;
   }
