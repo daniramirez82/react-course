@@ -1,0 +1,36 @@
+.wrap{
+    width: 100%;
+    display: flex;
+    background-color: #323241;
+    border-radius: 6px;
+}
+
+.avatar{
+    max-width: 25vw;
+    background-color: violet;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+
+.topRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.userName{
+    color:whitesmoke;
+    background-color: black;
+}
+
+.hour{
+    color: whitesmoke;
+}
+
+.bottomRow {
+    width: 100%;
+    background-color: brown;
+}

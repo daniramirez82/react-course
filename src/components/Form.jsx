@@ -2,11 +2,12 @@
 /* eslint-disable no-console */
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
-import formReducer from './helpers/formLoginRedurcer';
-import { validPassRegex, validUserRegex } from './helpers/validators';
+import formReducer from '../helpers/formLoginRedurcer';
+import { validPassRegex, validUserRegex } from '../helpers/validators';
 import './Form.css';
-import Button from './components/Button';
-import ButtonClear from './components/ButtonClear';
+import Button from './ui/Button';
+import ButtonClear from './ui/ButtonClear';
+import Input from './ui/Input';
 
 const initialFormState = {
   user: '',
@@ -27,7 +28,7 @@ const validateForm = (errors) => {
   return valid;
 };
 
-export default function Form({ formTitle }) {
+export default function Form({ formTitle, onAddLog }) {
   const [formState, dispatch] = useReducer(formReducer, initialFormState);
 
   const changeHandler = (e) => {
@@ -51,37 +52,30 @@ export default function Form({ formTitle }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // const { errors } = formState;
-    validateForm(formState.errors) ? console.log('Valid Form') : console.log('Invalid Form');
+    if (validateForm(formState.errors)) {
+      console.log('Valid Form');
+      onAddLog({ ...formState, timeStamp: Date.now() });
+    } else {
+      console.log('Invalid Form');
+    }
     dispatch({
       type: 'CLEAR_FORM',
     });
-    console.log(formState);
   };
 
   return (
     <>
       <div className="form-title">{formTitle}</div>
       <div className="wrapper">
-
         <div className="form-wrapper">
           <form onSubmit={submitHandler}>
-            <div className="input-cont">
-              <label htmlFor="user">Your user name will be:</label>
-              <input name="user" id="user" type="text" onChange={changeHandler} value={formState.user} placeholder="Type here" />
-              <small>{formState.errors.user}</small>
-            </div>
-            <div className="input-cont">
-              <label htmlFor="password"> Very secret pass: </label>
-              <input name="password" id="password" type="password" onChange={changeHandler} value={formState.password} placeholder="Type here" />
-              <small>{formState.errors.password}</small>
-            </div>
+            <Input label="Your user name will be:" name="user" type="text" onChange={changeHandler} value={formState.user} validateState={formState.errors.user} />
+            <Input label="Very secret pass" name="password" type="password" onChange={changeHandler} value={formState.password} validateState={formState.errors.password} />
             <div className="buttons">
-              <ButtonClear label="Go Back" />
-              <Button label="Login" type="submit" disabled={!(!formState.errors.user && !formState.errors.password)} />
+              <ButtonClear type="button" disabled={false}>Go Back</ButtonClear>
+              <Button type="submit" disabled={!(!formState.errors.user && !formState.errors.password)}>Login</Button>
             </div>
           </form>
-
         </div>
       </div>
     </>
@@ -90,4 +84,5 @@ export default function Form({ formTitle }) {
 
 Form.propTypes = {
   formTitle: PropTypes.string.isRequired,
+  onAddLog: PropTypes.func.isRequired,
 };
