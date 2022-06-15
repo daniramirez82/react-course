@@ -1,18 +1,19 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar, { genConfig } from 'react-nice-avatar';
+import Avatar from 'react-nice-avatar';
 import classes from './CardLog.module.css';
-// generate random config
-const config = genConfig({ shape: 'square', sex: 'woman' });
 
 function CardLog({
-  user, hour, password,
+  user, hour, password, avatarConf,
 }) {
+  console.log(avatarConf);
   return (
     <div className={classes.wrap}>
       <div className={classes.avatar}>
-        <Avatar style={{ width: '8rem', height: '8rem' }} {...config} />
+        <Avatar style={{ width: '3rem', height: '3rem' }} {...avatarConf} />
       </div>
       <div className={classes.content}>
         <div className={classes.topRow}>
@@ -21,6 +22,7 @@ function CardLog({
         </div>
         <div className={classes.bottomRow}>
           {' '}
+          <span>Your password: </span>
           {password}
         </div>
 
@@ -37,6 +39,7 @@ CardLog.propTypes = {
   user: PropTypes.string.isRequired,
   hour: PropTypes.string,
   password: PropTypes.string.isRequired,
+  avatarConf: PropTypes.any.isRequired,
 };
 
 export default CardLog;

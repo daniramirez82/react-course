@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { genConfig } from 'react-nice-avatar';
 import Form from './components/Form';
 import Flow from './components/Flow';
 import PageTitles from './components/ui/PageTitles';
@@ -7,9 +8,18 @@ import './App.css';
 
 export default function App() {
   const [logsArr, setNewLog] = useState([]);
+
   const addLogHandler = (data) => {
-    setNewLog((oldArr) => [...oldArr, data]);
+    const config = genConfig({ shape: 'square', sex: 'woman' });
+
+    setNewLog((oldArr) => [...oldArr,
+      {
+        ...data,
+        avatarConfig: config,
+        id: Date.now().toString(),
+      }]);
   };
+
   return (
 
     <div className="app-cont">

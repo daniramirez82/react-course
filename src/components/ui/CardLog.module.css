@@ -3,34 +3,45 @@
     display: flex;
     background-color: #323241;
     border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: whitesmoke;
 }
 
 .avatar{
     max-width: 25vw;
-    background-color: violet;
 }
 
 .content{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    width: 100%;
+    margin-left: 10px;
 }
 
 .topRow{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 2rem;
 }
 
 .userName{
-    color:whitesmoke;
-    background-color: black;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.842);
 }
 
 .hour{
-    color: whitesmoke;
+    color: rgba(245, 245, 245, 0.445);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
 .bottomRow {
     width: 100%;
-    background-color: brown;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.705)
 }

@@ -6,4 +6,5 @@
     height: 100vh;
     max-height: 896px;
     padding: 0 35px 0 35px;
+    overflow: scroll;
 }
